@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import ToolList from './components/ToolList';
 import AddTools from './components/AddTools';
+import Main from './components/Main';
 
 function App() {
   const [ isAuthenticated , setIsAuthenticated ] = useState(false);
@@ -31,11 +32,12 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter basename='/'>
+    <BrowserRouter>
       <Routes>
         {isAuthenticated ? (
           <Route path="/" element={<Dashboard setAuth={setAuth} />}>
-            <Route path="" element={<AddTools />} />
+            <Route path="" element={<Main />} />
+            <Route path="/add" element={<AddTools />} />
             <Route path="/view" element={<ToolList />} />
           </Route>
         ) : (

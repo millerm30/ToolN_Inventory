@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Header from './Header';
+import AppHeader from './AppHeader';
 
 const Register = ({setAuth}) => {
   const [inputs, setInput] = useState({
@@ -43,7 +43,7 @@ const Register = ({setAuth}) => {
   return (
     <Fragment>
       <ToastContainer />
-      <Header title="Tool Inventory" />
+      <AppHeader title="Tool Inventory" />
       <div className="flex flex-col">
         <form
           className="flex flex-col w-3/4 self-center bg-white p-6 rounded-xl border-2 shadow-md md:w-1/2 lg:w-1/3"
@@ -63,6 +63,7 @@ const Register = ({setAuth}) => {
             className="border border-gray-400 p-2 rounded mb-4"
             value={name}
             onChange={(e) => onChange(e)}
+            autoComplete="off"
           />
           <label
             className="text-sm font-semibold text-gray-600 mb-1"
@@ -77,6 +78,7 @@ const Register = ({setAuth}) => {
             className="border border-gray-400 p-2 rounded mb-4"
             value={email}
             onChange={(e) => onChange(e)}
+            autoComplete="off"
           />
           <label
             className="text-sm font-semibold text-gray-600 mb-1"
@@ -91,6 +93,7 @@ const Register = ({setAuth}) => {
             className="border border-gray-400 p-2 rounded mb-4"
             value={password}
             onChange={(e) => onChange(e)}
+            autoComplete="off"
           />
           <button
             disabled={!email || !password || !name}

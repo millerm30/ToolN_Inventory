@@ -1,11 +1,15 @@
 import React from "react";
 import toolLogo from "../assets/appLogo.png";
+import UserInfo from "./UserInfo";
 
-const Header = ({title}) => {
+const Header = ({title, name, logout}) => {
   return (
-    <div className="flex justify-center my-4">
-      <img src={toolLogo} alt="tool logo" className="w-1/8" />
-      <h1 className="text-4xl font-bold self-center ml-2">{title}</h1>
+    <div className="flex justify-between mt-1 mb-4">
+      <div className="flex">
+        <img src={toolLogo} alt="logo" className="h-10 w-10 ml-2 self-center" />
+        <h1 className="text-3xl font-bold ml-2 self-center">{title}</h1>
+      </div>
+      <UserInfo name={name} logout={logout} />
     </div>
   );
 };

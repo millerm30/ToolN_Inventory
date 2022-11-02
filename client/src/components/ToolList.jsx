@@ -17,7 +17,7 @@ const ToolList = () => {
             <th className="border-2 border-gray-300 p-2">Delete</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='text-center'>
           <tr>
             <td className="border-2 border-gray-300 p-2">Hammer</td>
             <td className="border-2 border-gray-300 p-2">Stanley</td>
