@@ -17,20 +17,22 @@ const Register = ({setAuth}) => {
     setInput({ ...inputs, [e.target.name]: e.target.value });
   };
 
-  const onSubmitForm = async (e) => {
+ const registerNewUser = async (e) => {
     e.preventDefault();
     try {
       const body = { email, password, name };
-      const response = await fetch('http://localhost:3000/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("http://localhost:3000/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
+
       const parseRes = await response.json();
+
       if (parseRes.token) {
-        localStorage.setItem('token', parseRes.token);
+        localStorage.setItem("token", parseRes.token);
         setAuth(true);
-        toast.success('Registered successfully');
+        toast.success("Registered Successfully");
       } else {
         setAuth(false);
         toast.error(parseRes);
@@ -47,7 +49,7 @@ const Register = ({setAuth}) => {
       <div className="flex flex-col">
         <form
           className="flex flex-col w-3/4 self-center bg-white p-6 rounded-xl border-2 shadow-md md:w-1/2 lg:w-1/3"
-          onSubmit={onSubmitForm}
+          onSubmit={registerNewUser}
         >
           <h2 className="text-center text-2xl font-semibold">Registration</h2>
           <label
