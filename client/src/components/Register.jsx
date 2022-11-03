@@ -33,6 +33,7 @@ const Register = ({setAuth}) => {
         localStorage.setItem("token", parseRes.token);
         setAuth(true);
         toast.success("Registered Successfully");
+        window.location.href = "/";
       } else {
         setAuth(false);
         toast.error(parseRes);

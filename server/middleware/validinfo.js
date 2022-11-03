@@ -2,7 +2,7 @@ module.exports = (req, res, next) => {
   const { email, name, password } = req.body;
 
   function validEmail(userEmail) {
-    return /\S+@\S+\.\S+/.test(userEmail);
+    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userEmail);
   }
 
   if (req.path === '/register') {

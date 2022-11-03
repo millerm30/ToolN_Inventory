@@ -98,7 +98,9 @@ const Login = ({setAuth}) => {
           <button
             disabled={!email || !password}
             className={`${"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded my-4"} ${
-              !email || !password ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+              !email || !password
+                ? "opacity-50 cursor-not-allowed"
+                : "cursor-pointer"
             }`}
           >
             Login

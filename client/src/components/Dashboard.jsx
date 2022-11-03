@@ -21,12 +21,15 @@ const Dashboard = ({setAuth}) => {
     }
   };
 
-  const logout = (e) => {
+  const logout = async e => {
     e.preventDefault();
-    localStorage.removeItem('token');
-    setAuth(false);
-    toast.success('Logged out successfully');
-    window.location = '/';
+    try {
+      localStorage.removeItem('token');
+      setAuth(false);
+      toast.success('Logged out successfully');
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   useEffect(() => {
