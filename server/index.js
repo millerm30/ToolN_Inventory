@@ -1,6 +1,6 @@
 const express = require('express');  // Import express
 const app = express();             // Create express app
-const PORT = process.env.PORT || 3000;  // Set port
+const PORT = process.env.PORT || 3010;  // Set port
 const cors = require('cors');     // Import cors
 
 // Middleware

@@ -10,7 +10,7 @@ const Dashboard = ({setAuth}) => {
 
   const getProfile = async () => {
     try {
-      const res = await fetch('http://localhost:3000/dashboard/', {
+      const res = await fetch('http://localhost:3010/dashboard/', {
         method: 'GET',
         headers: { token: localStorage.token }
       });
@@ -27,6 +27,7 @@ const Dashboard = ({setAuth}) => {
       localStorage.removeItem('token');
       setAuth(false);
       toast.success('Logged out successfully');
+      window.location = '/';
     } catch (err) {
       console.error(err.message);
     }
