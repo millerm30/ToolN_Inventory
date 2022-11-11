@@ -3,21 +3,38 @@ import { TiDelete } from 'react-icons/ti';
 
 const ToolList = () => {
   const [tools, setTools] = useState([]);
-  const id = useId();
+  const [ newTools, setNewTools ] = useState('');
 
-  const loadTools = async () => {
+  const getAllTools = async () => {
     try {
-      const response = await fetch('http://localhost:3010/tools/alltools');
-      const jsonData = await response.json();
-      setTools(jsonData);
-    } catch (err) {
-      console.error(err.message);
+      const tools = await fetch('http://localhost:3010/tools/alltools/', {
+        method: 'GET',
+        headers: { token: localStorage.token },
+      }) 
+      const toolsJson = await tools.json();
+      setTools(toolsJson);
+    } catch (error) {
+      console.error(error.message);
     }
   };
 
-  useEffect (() => {
-    loadTools();
-  }, []);
+  const deleteTool = async (tool_id) => {
+    try {
+      const deleteTool = await fetch(`http://localhost:3010/tools/deletetool/${tool_id}`, {
+        method: 'DELETE',
+        headers: { token: localStorage.token },
+      });
+      setTools(tools.filter(tool => tool.tool_id !== tool_id));
+      setNewTools(newTools - 1);
+      deleteTool.json();
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getAllTools();
+  }, [newTools]);
 
   return (
     <div className='flex flex-col'>
@@ -34,15 +51,15 @@ const ToolList = () => {
             <th className="border-2 border-gray-300 p-2">Delete</th>
           </tr>
         </thead>
-        <tbody>
-          {tools.map(tool => (
-            <tr key={id} className="text-center">
+        <tbody className="text-center">
+          {tools.map((tool) => (
+            <tr key={tool.tool_id}>
               <td className="border-2 border-gray-300 p-2">{tool.tool_type}</td>
               <td className="border-2 border-gray-300 p-2">{tool.tool_brand}</td>
               <td className="border-2 border-gray-300 p-2">{tool.tool_model}</td>
               <td className="border-2 border-gray-300 p-2">{tool.tool_serial}</td>
               <td className="border-2 border-gray-300 p-2">
-                <TiDelete />
+                <TiDelete onClick={deleteTool}/>
               </td>
             </tr>
           ))}
