@@ -37,7 +37,7 @@ const ToolList = () => {
   }, [newTools]);
 
   return (
-    <div className='flex flex-col' id="mainContainer">
+    <div className='flex flex-col mb-2' id="mainContainer">
       <h3 className="text-center my-4 text-lg font-semibold">Tool Chest</h3>
       {tools.length === 0 ? (
         <h3 className="text-center my-4 text-lg font-semibold">You have no tools in your inventory!</h3>
@@ -75,4 +75,4 @@ const ToolList = () => {
 };
 
 
-export default ToolList
+export default ToolList;

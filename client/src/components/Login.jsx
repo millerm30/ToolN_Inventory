@@ -22,7 +22,7 @@ const Login = ({setAuth}) => {
   const handleEeyeChange = (e) => {
     e.preventDefault();
     setShowPassword(!showPassword);
-  }
+  };
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -118,6 +118,6 @@ const Login = ({setAuth}) => {
       <ToastContainer />
     </Fragment>
   );
-}
+};
 
-export default Login
+export default Login;

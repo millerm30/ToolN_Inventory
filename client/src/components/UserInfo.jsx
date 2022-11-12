@@ -14,6 +14,6 @@ const UserInfo = ({logout, name}) => {
       </button>
     </div>
   );
-}
+};
 
-export default UserInfo
+export default UserInfo;

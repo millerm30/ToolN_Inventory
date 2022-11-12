@@ -8,6 +8,6 @@ const AppHeader = ({title}) => {
       <h1 className="text-4xl font-bold self-center ml-2">{title}</h1>
     </div>
   )
-}
+};
 
 export default AppHeader;

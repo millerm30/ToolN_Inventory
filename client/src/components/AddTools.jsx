@@ -9,6 +9,7 @@ const AddTools = () => {
     tool_model: '',
     tool_serial: ''
   });
+  
   const [ addNewTool, setAddNewTool ] = useState('');
 
   const { tool_type, tool_brand, tool_model, tool_serial } = inputs;
@@ -110,6 +111,6 @@ const AddTools = () => {
       <ToastContainer />
     </div>
   );
-}
+};
 
-export default AddTools
+export default AddTools;

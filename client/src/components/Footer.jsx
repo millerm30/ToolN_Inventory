@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className="bg-white border-t-2 mt-2" id="footerContainer">
+    <div className="bg-white border-t-2" id="footerContainer">
       <div className="container mx-auto">
         <div className="md:flex md:items-center md:justify-between">
           <div className="mt-2">
@@ -25,6 +25,6 @@ const Footer = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Footer
+export default Footer;

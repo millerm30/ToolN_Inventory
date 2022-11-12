@@ -1,7 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Navigation from './Navigation';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
@@ -27,7 +24,6 @@ const Dashboard = ({setAuth}) => {
     try {
       localStorage.removeItem('token');
       setAuth(false);
-      toast.success('Logged out successfully');
       window.location = '/';
     } catch (err) {
       console.error(err.message);
@@ -45,6 +41,6 @@ const Dashboard = ({setAuth}) => {
       <Footer />
     </Fragment>
   );
-}
+};
 
-export default Dashboard
+export default Dashboard;
