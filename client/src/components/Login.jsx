@@ -49,10 +49,10 @@ const Login = ({setAuth}) => {
 
   return (
     <Fragment>
-      <AppHeader title="Tool Inventory" />
+      <AppHeader />
       <div className="flex flex-col">
         <form
-          className="flex flex-col w-3/4 self-center bg-white p-6 rounded-xl border-2 shadow-md md:w-1/2 lg:w-1/3"
+          className="flex flex-col w-5/6 self-center bg-white p-6 rounded-xl border-2 shadow-md md:w-1/2 lg:w-1/3"
           onSubmit={onSubmitForm}
         >
           <h2 className="text-center text-2xl font-semibold">Login</h2>
