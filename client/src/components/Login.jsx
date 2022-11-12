@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import AppHeader from './AppHeader';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = ({setAuth}) => {
   const [inputs, setInput] = useState({
@@ -49,7 +49,6 @@ const Login = ({setAuth}) => {
 
   return (
     <Fragment>
-      <ToastContainer />
       <AppHeader title="Tool Inventory" />
       <div className="flex flex-col">
         <form
@@ -106,13 +105,17 @@ const Login = ({setAuth}) => {
             Login
           </button>
         </form>
-        <Link
-          to="/register"
-          className="text-blue-500 hover:text-blue-700 text-center my-5"
-        >
-          Register
-        </Link>
+        <div className="my-5 flex justify-center">
+          <h3>Don't have an account?</h3>
+          <Link
+            to="/register"
+            className="text-blue-500 hover:text-blue-700 text-center mx-1"
+          >
+            Register
+          </Link>
+        </div>
       </div>
+      <ToastContainer />
     </Fragment>
   );
 }

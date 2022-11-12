@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Navigation from './Navigation';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
+import Footer from './Footer';
 
 const Dashboard = ({setAuth}) => {
   const [name, setName] = useState('');
@@ -39,10 +40,9 @@ const Dashboard = ({setAuth}) => {
 
   return (
     <Fragment>
-      <ToastContainer />
-      <Header title="TooliN" logout={logout} name={name}/>
-      <Navigation />
+      <Header title="TooliN" logout={logout} name={name} />
       <Outlet />
+      <Footer />
     </Fragment>
   );
 }

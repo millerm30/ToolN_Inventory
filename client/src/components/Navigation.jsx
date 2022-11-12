@@ -6,7 +6,7 @@ import { AiOutlineFileAdd } from 'react-icons/ai';
 
 const Navigation = () => {
   return (
-      <div className="flex justify-between border-b-2 border-t-2 py-1 mb-2 shadow-md">
+      <div className="flex justify-between border-b-2 border-t-2 py-1 mb-2 shadow-md bg-white">
         <div>
           <Link to="/" className="flex px-2 uppercase hover:text-cyan-700">
             <AiOutlineHome className="text-2xl" />

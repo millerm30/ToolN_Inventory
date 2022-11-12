@@ -15,13 +15,27 @@ router.get('/alltools', authorization, async (req, res) => {
   }
 });
 
+// Create a new tool for the logged in user
+router.post('/addtool/:id', authorization, async (req, res) => {
+  const userId = req.user.id;
+  const { tool_type, tool_brand, tool_model, tool_serial } = req.body;
+  try {
+    const newTool = await pool.query(
+      "INSERT INTO tools (user_id, tool_type, tool_brand, tool_model, tool_serial) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      [userId, tool_type, tool_brand, tool_model, tool_serial]
+    );
+    res.json(newTool.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 // Delete a tool for the logged in user by id
 router.delete('/deletetool/:id', authorization, async (req, res) => {
   try {
     const userId = req.user.id;
-    const tool_id = req.params;
-    console.log(typeof tool_id);
-    const deleteTool = await pool.query("DELETE FROM tools WHERE tool_id = $1 AND user_id = $2", [userId, tool_id]);
+    const tool_id = req.params.id;
+    const deleteTool = await pool.query("DELETE FROM tools WHERE tool_id = $1", [tool_id]);
     res.json("Tool was deleted!");
   } catch (err) {
     console.error(err.message);

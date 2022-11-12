@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AppHeader from './AppHeader';
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
 const Register = ({setAuth}) => {
   const [inputs, setInput] = useState({
@@ -11,10 +12,17 @@ const Register = ({setAuth}) => {
     name: ''
   });
 
+  const [showPassword, setShowPassword] = useState("");
+
   const { email, password, name } = inputs;
 
   const onChange = e => {
     setInput({ ...inputs, [e.target.name]: e.target.value });
+  };
+
+  const handleEeyeChange = (e) => {
+    e.preventDefault();
+    setShowPassword(!showPassword);
   };
 
  const registerNewUser = async (e) => {
@@ -83,14 +91,22 @@ const Register = ({setAuth}) => {
             onChange={(e) => onChange(e)}
             autoComplete="off"
           />
-          <label
-            className="text-sm font-semibold text-gray-600 mb-1"
-            htmlFor="password"
-          >
-            Password
-          </label>
+          <span className="flex flex-row justify-between mb-1">
+            <label
+              className="text-sm font-semibold text-gray-600 mb-1"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <button
+              className="font-semibold text-gray-600 text-2xl"
+              onClick={handleEeyeChange}
+            >
+              {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+            </button>
+          </span>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             placeholder="Please enter your password..."
             className="border border-gray-400 p-2 rounded mb-4"
@@ -101,18 +117,24 @@ const Register = ({setAuth}) => {
           <button
             disabled={!email || !password || !name}
             className={`${"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded my-4"}
-              ${!email || !password || !name ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
-            }`}
+              ${
+                !email || !password || !name
+                  ? "opacity-50 cursor-not-allowed"
+                  : "cursor-pointer"
+              }`}
           >
             Register
           </button>
         </form>
-        <Link
-          to="/"
-          className="text-blue-500 hover:text-blue-700 text-center my-5"
-        >
-          Back to Login
-        </Link>
+        <div className="my-5 flex justify-center">
+          <h3>Already have an account?</h3>
+          <Link
+            to="/"
+            className="text-blue-500 hover:text-blue-700 text-center mx-1"
+          >
+            Login
+          </Link>
+        </div>
       </div>
     </Fragment>
   );

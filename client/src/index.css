@@ -5,8 +5,18 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont,'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f5f5f5;
+}
+
+#mainContainer {
+  min-height: calc(100vh - 76px - 48px - 54px);
+}
+
+@media screen and (max-width: 576px) {
+  #mainContainer {
+    min-height: calc(100vh - 76px - 48px - 54px);
+  }
 }
