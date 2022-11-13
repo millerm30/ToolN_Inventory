@@ -1,6 +1,6 @@
-<<<<<<< HEAD
 ![App Logo](./client/src/assets/appName.png)
 
+## PERN Stack Tool Inventory Application
 This app allows me to keep track of my tool inventory with serial numbers/models etc...
 
 ## 🚀 About Me
@@ -45,6 +45,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 <a href="https://twitter.com/millerm30" target="blank"><img align="center" src="https://github.com/millerm30/todo/blob/main/images/twitter.svg" alt="millerm30" height="30" width="40" /></a>
 <a href="https://linkedin.com/in/michael-miller-0aa2bb229" target="blank"><img align="center" src="https://github.com/millerm30/todo/blob/main/images/linked-in-alt.svg" alt="millerm30" height="30" width="40" /></a>
 </p>
-=======
-#PERN Stack Tool Inventory Application
->>>>>>> e78374a0b7d28e37210c10c356a6396833e3c97b
