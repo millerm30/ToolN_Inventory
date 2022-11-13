@@ -17,8 +17,8 @@ function App() {
 
   async function isAuth() {
     try {
-      const response = await fetch("http://localhost:3010/auth/verify", {
-        method: "GET",
+      const response = await fetch('http://localhost:3010/auth/verify', {
+        method: 'GET',
         headers: { token: localStorage.token }
       });
       const parseData = await response.json();
@@ -36,16 +36,16 @@ function App() {
     <BrowserRouter>
       <Routes>
         {isAuthenticated ? (
-          <Route path="/" element={<Dashboard setAuth={setAuth} />}>
-            <Route path="" element={<Main />} />
-            <Route path="/add" element={<AddTools />} />
-            <Route path="/view" element={<ToolList />} />
-            <Route path="/contact" element={<Contact />} />
+          <Route path='/' element={<Dashboard setAuth={setAuth} />}>
+            <Route path='' element={<Main />} setAuth={setAuth} />
+            <Route path='/add' element={<AddTools setAuth={setAuth} />} />
+            <Route path='/view' element={<ToolList setAuth={setAuth} />} />
+            <Route path='/contact' element={<Contact setAuth={setAuth} />} />
           </Route>
         ) : (
-          <Route path="/" element={<Login setAuth={setAuth} />} />
+          <Route path='/' element={<Login setAuth={setAuth} />} />
         )}
-        <Route path="/register" element={<Register setAuth={setAuth} />} />
+        <Route path='/register' element={<Register setAuth={setAuth} />} />
       </Routes>
     </BrowserRouter>
   );

@@ -36,7 +36,7 @@ const Dashboard = ({setAuth}) => {
 
   return (
     <Fragment>
-      <Header title="TooliN" logout={logout} name={name} />
+      <Header title='TooliN' logout={logout} name={name} />
       <Outlet />
       <Footer />
     </Fragment>

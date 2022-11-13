@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TiDelete } from 'react-icons/ti';
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const ToolList = () => {
@@ -41,38 +41,40 @@ const ToolList = () => {
   }, [newTools]);
 
   return (
-    <div className='flex flex-col mb-2' id="mainContainer">
-      <h3 className="text-center my-4 text-lg font-semibold">Tool Chest</h3>
-      {tools.length === 0 ? (
-        <h3 className="text-center my-4 text-lg font-semibold">You have no tools in your inventory!</h3>
+    <div className='flex flex-col bg-hero-pattern bg-no-repeat bg-center bg-cover bg-blend-luminosity bg-cyan-900' id='mainContainer'>
+      <h3 className='text-center py-4 text-2xl font-extrabold'>Tool Chest</h3>
+      {tools === 0 ? (
+        <h3>You have no tools currently in your inventory!</h3>
       ) : (
-      <div className='grid grid-cols-2 gap-2 px-2 md:grid-cols-4 lg:grid-cols-6'>
-          {tools.map(tool => (
-          <div className='flex flex-col' key={tool.tool_id}>
-            <div className='flex flex-row justify-end bg-cyan-600 w-full border-2 border-cyan-600 rounded-t-xl'>
-              <TiDelete onClick={() => deleteTool(tool.tool_id)} className='text-white cursor-pointer m-0.5 text-xl hover:text-black' />
-            </div>
-            <div className='border-2 border-cyan-600 rounded-b-xl w-full px-4 py-2 bg-white'>
-              <span className="flex flex-col flex-wrap">
-                <p className="text-lg">Tool Type:</p>
-                <p className='text-gray-700 font-semibold'>{tool.tool_type}</p>
-              </span>
-              <span className="flex flex-col flex-wrap">
-                <p className="text-lg">Tool Brand:</p>
-                <p className='text-gray-700 font-semibold'>{tool.tool_brand}</p>
-              </span>
-              <span className="flex flex-col flex-wrap">
-                <p className="text-lg">Tool Model:</p>
-                <p className='text-gray-700 font-semibold'>{tool.tool_model}</p>
-              </span>
-              <span className="flex flex-col flex-wrap">
-                <p className="text-lg">Tool Serial:</p>
-                <p className='text-gray-700 font-semibold'>{tool.tool_serial}</p>
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
+        <table className='w-11/12 self-center md:w-3/4 lg:w-1/2 bg-white'>
+          <thead className='bg-blue-300 border-b-2 border-stone-700 text-left'>
+            <tr>
+              <th className='p-1'>Type</th>
+              <th className='p-1'>Brand</th>
+              <th className='p-1'>Model</th>
+              <th className='p-1'>Serial</th>
+              <th className='p-1 text-center'>-</th>
+            </tr>
+          </thead>
+          <tbody className='text-left'>
+          {tools.map((tool) => (
+            <tr key={tool.tool_id} className='border-b-2 border-stone-700 hover:bg-slate-200'>
+              <td className='p-1'>{tool.tool_type}</td>
+              <td className='p-1'>{tool.tool_brand}</td>
+              <td className='p-1'>{tool.tool_model}</td>
+              <td className='p-1'>{tool.tool_serial}</td>
+              <td className='p-1 text-center'>
+                <button
+                  className='text-black cursor-pointer m-0.5 text-xl hover:text-red-600'
+                  onClick={() => deleteTool(tool.tool_id)}
+                >
+                  <TiDelete />
+                </button>
+              </td>
+            </tr>
+          ))}
+          </tbody>
+        </table>
       )}
       <ToastContainer />
     </div>
