@@ -8,12 +8,12 @@ I'm currently a student with [Get Coding](http://www.get-coding.ca) completing F
 
 ### `npm run server`
 
-CD into the server directory and run npm run server.
+CD into the server directory and run "npm run server".
 Runs the back end for this app.
 
 ### `npm start`
 
-CD into the client directory and run npm start.
+CD into the client directory and run "npm start".
 Runs the front end app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
