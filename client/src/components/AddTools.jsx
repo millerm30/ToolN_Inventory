@@ -38,7 +38,7 @@ const AddTools = () => {
         tool_model: '',
         tool_serial: ''
       });
-      toast.success('Tool Added Successfully 🧰');
+      toast.success(tool_type + ' Added Successfully 🧰');
       setStatus('Submit');
     } catch (err) {
       console.error(err.message);
