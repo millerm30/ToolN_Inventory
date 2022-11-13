@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { TiDelete } from 'react-icons/ti';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const ToolList = () => {
   const [tools, setTools] = useState([]);
@@ -27,6 +30,7 @@ const ToolList = () => {
       setTools(tools.filter(tool => tool.tool_id !== id));
       setNewTools(newTools - 1);
       deleteTool.json();
+      toast.success('Deleted Successfully 🧰');
     } catch (error) {
       console.error(error.message);
     }
@@ -70,6 +74,7 @@ const ToolList = () => {
         ))}
       </div>
       )}
+      <ToastContainer />
     </div>
   );
 };

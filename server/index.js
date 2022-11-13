@@ -17,6 +17,9 @@ app.use('/dashboard', require('./routes/dashboard'));
 // Tools Route
 app.use('/tools', require('./routes/tools'));
 
+// Contact Us Route
+app.use('/contact', require('./routes/contactus'));
+
 // PORT Listener
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);

@@ -9,6 +9,8 @@ const AddTools = () => {
     tool_model: '',
     tool_serial: ''
   });
+
+  const [ status, setStatus ] = useState('Submit');
   
   const [ addNewTool, setAddNewTool ] = useState('');
 
@@ -20,6 +22,7 @@ const AddTools = () => {
 
   const onSubmitForm = async (e, id) => {
     e.preventDefault();
+    setStatus('Sending...');
     try {
       const body = { tool_type, tool_brand, tool_model, tool_serial };
       const response = await fetch(`http://localhost:3010/tools/addtool/${id}`, {
@@ -35,7 +38,8 @@ const AddTools = () => {
         tool_model: '',
         tool_serial: ''
       });
-      toast.success('Tool Added Successfully');
+      toast.success('Tool Added Successfully 🧰');
+      setStatus('Submit');
     } catch (err) {
       console.error(err.message);
     }
@@ -104,8 +108,9 @@ const AddTools = () => {
         <button
           disabled={tool_type === '' || tool_brand === '' || tool_model === '' || tool_serial === ''}
           className="bg-blue-500 hover:bg-blue-700 text-white rounded-md p-2 my-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          type='submit'
         >
-          Add Tool
+          {status}
         </button>
       </form>
       <ToastContainer />
