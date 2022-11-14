@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import AppHeader from './AppHeader';
+import AppHeader from '../components/AppHeader';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 
 const Register = ({setAuth}) => {

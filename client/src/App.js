@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Dashboard from './components/Dashboard';
-import Login from './components/Login';
-import Register from './components/Register';
-import ToolList from './components/ToolList';
-import AddTools from './components/AddTools';
-import Main from './components/Main';
-import Contact from './components/Contact';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import ToolList from './pages/ToolList';
+import AddTools from './pages/AddTools';
+import Main from './pages/Main';
+import Contact from './pages/Contact';
 
 function App() {
   const [ isAuthenticated , setIsAuthenticated ] = useState(false);
