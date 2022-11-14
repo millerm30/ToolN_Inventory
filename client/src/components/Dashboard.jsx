@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import { ToastContainer } from 'react-toastify';
 
 const Dashboard = ({setAuth}) => {
   const [name, setName] = useState('');
@@ -39,6 +40,7 @@ const Dashboard = ({setAuth}) => {
       <Header title='TooliN' logout={logout} name={name} />
       <Outlet />
       <Footer />
+      <ToastContainer />
     </Fragment>
   );
 };

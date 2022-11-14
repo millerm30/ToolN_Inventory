@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TiDelete } from 'react-icons/ti';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -94,7 +94,6 @@ const ToolList = () => {
           </tbody>
         </table>
       )}
-      <ToastContainer />
     </div>
   );
 };
