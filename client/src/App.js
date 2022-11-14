@@ -29,7 +29,7 @@ function App() {
   };
 
   useEffect(() => {
-    isAuth()
+    isAuth();
   }, []);
 
   return (
@@ -37,10 +37,10 @@ function App() {
       <Routes>
         {isAuthenticated ? (
           <Route path='/' element={<Dashboard setAuth={setAuth} />}>
-            <Route path='' element={<Main />} setAuth={setAuth} />
-            <Route path='/add' element={<AddTools setAuth={setAuth} />} />
-            <Route path='/view' element={<ToolList setAuth={setAuth} />} />
-            <Route path='/contact' element={<Contact setAuth={setAuth} />} />
+            <Route path='' element={<Main />} />
+            <Route path='/add' element={<AddTools />} />
+            <Route path='/view' element={<ToolList />} />
+            <Route path='/contact' element={<Contact />} />
           </Route>
         ) : (
           <Route path='/' element={<Login setAuth={setAuth} />} />
