@@ -23,18 +23,21 @@ const ToolList = () => {
 
   const deleteTool = async (id) => {
     try {
-      const deleteTool = await fetch(`http://localhost:3010/tools/deletetool/${id}`, {
+      await fetch(`http://localhost:3010/tools/deletetool/${id}`, {
         method: 'DELETE',
         headers: { token: localStorage.token },
       });
+      const tool_type = tools.find(tool => tool.tool_id === id).tool_type;
+      const deletedTool = {tool_type};
+      setNewTools([...newTools, deletedTool]);
       setTools(tools.filter(tool => tool.tool_id !== id));
-      setNewTools(newTools - 1);
-      deleteTool.json();
-      toast.success('Tool Deleted Successfully 🧰');
+      toast.success(`${tool_type} was deleted!`);
     } catch (error) {
       console.error(error.message);
     }
   };
+
+  console.log(tools);
 
   useEffect(() => {
     getAllTools();
